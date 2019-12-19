@@ -1,0 +1,37 @@
+" Syntax Highlighting
+if has(“syntax”)
+    Syntax on
+endif
+
+set number
+
+colorscheme jellybeans
+
+set ts=4 " Tab 너비
+set shiftwidth=4 " 자동 인덴트할 때 너비
+
+" 마지막으로 수정된 곳에 커서를 위치함
+au BufReadPost *
+\ if line("'\"") > 0 && line("'\"") <= line("$") |
+\ exe "norm g`\"" |
+\ endif
+
+set laststatus=2 " 상태바 표시를 항상한다
+set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
+set autoindent " 자동 들여쓰기
+set smartindent 
+set ingnorecase "검색시 대소문자 무시
+set nocompatible "방향키로 이동 가능
+set cindent " C언어 자동 들여쓰기
+set ruler " 현재 커서 위치 표시
+set fileencodings=utf-8,euc-kr "파일저장인코딩 utf8 euc-kr
+set fencs=ucs-bom,utf-8,euc-kr "한글파일은 euc-kr, 유니코드는 유니코드
+set title
+set showmatch "매칭되는 괄호 보여줌
+set mouse=a "커서이동에 마우스가능.
+
+" 파일 인코딩을 한국어로
+if $LANG[0]=='k' && $LANG[1]=='o'
+set fileencoding=korea
+endif
+
